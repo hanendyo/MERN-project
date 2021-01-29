@@ -1,0 +1,10 @@
+.linkContainer {
+    text-align: center;
+}
+
+.link {
+    font-size: 16px;
+    color: #ababab;
+    text-decoration: underline;
+    cursor: pointer;
+}

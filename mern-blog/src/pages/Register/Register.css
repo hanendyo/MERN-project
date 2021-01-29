@@ -1,0 +1,24 @@
+/* MAIN PAGE */
+.mainPage {
+    display: flex;
+    height: 100vh;
+    box-sizing: border-box;
+}.left {
+    flex: 1;
+    background-color: lightcoral;
+}.left .bgImage {
+    width: 100%;
+    object-fit: cover;    
+    height: 100%;
+}.right {
+    width: 460px;
+    background-color: white;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}.right .title {
+    font-weight: bold;
+}
+
