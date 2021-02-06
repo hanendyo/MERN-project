@@ -1,5 +1,6 @@
 .blogItem {
     width: calc(50% - 10px);
+    /* width: calc(100% - 10px); */
     border-radius: 8px;
     margin-bottom: 20px;
     overflow: hidden;

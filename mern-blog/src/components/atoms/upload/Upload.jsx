@@ -1,13 +1,11 @@
 import React from 'react'
-import { webiThumb3 } from '../../../assets/Assets'
-
 import './Upload.css'
 
-const Upload = () => {
+const Upload = ({img, ...rest}) => {
     return (
         <div className='upload'>
-            <img className='preview' src={webiThumb3} alt=""/>
-            <input type="file"/>
+            <img className='preview' src={img} alt=""/>
+            <input type="file" {...rest}/>
         </div>
     )
 }

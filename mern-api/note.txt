@@ -1,0 +1,18 @@
+-install:
+nodejs
+express
+nodemon = tak perlu restart server (jangan lupa edit package.json 'start':)
+cors
+body-parser
+multer
+
+-database/server
+mongoose (install)
+
+
+-folder:
+images
+Routes
+controller
+model
+

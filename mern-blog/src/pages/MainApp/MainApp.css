@@ -3,7 +3,7 @@
     flex-direction: column;
     height: 100vh;
 } .contentWrapper {
-    max-width: 60%;
+    max-width: 80%;
     margin: auto;
     width: 100%;
     flex: 1;

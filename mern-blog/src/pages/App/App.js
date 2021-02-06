@@ -1,9 +1,13 @@
 import { Routes } from '../../config/Config';
+import {Provider} from 'react-redux'
+import {Store} from '../../config/Config.jsx'
 import './App.css';
 
 function App() {
   return (
-    <Routes/>
+    <Provider store={Store}>
+      <Routes/>
+    </Provider>
   );
 }
 

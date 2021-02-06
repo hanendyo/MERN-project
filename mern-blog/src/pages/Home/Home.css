@@ -4,12 +4,20 @@
     width: 200px;
     margin-right: 0px;
     margin-left: auto;
-} .contentWrapper {
+}.contentWrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-} .pagination {
+}.pagination {
     max-width: 200px;
     display: flex;
     margin: auto;
+} 
+.pagination .textPage {
+    font-size: 30px;
+    width: 300px;
+    text-align: center;
+    /* font-weight: bold; */
+    margin: 0;
 }
+
