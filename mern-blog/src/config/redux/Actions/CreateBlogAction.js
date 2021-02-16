@@ -9,8 +9,10 @@ export const setImgPreview = (payload) => {
 }
 
 
+
 export const postToAPI =(form)=>{
     const data = new FormData();
+    console.log(`formdata:`, form);
     data.append('title', form.title)
     data.append('body', form.body)
     data.append('image', form.image)
@@ -20,6 +22,27 @@ export const postToAPI =(form)=>{
             'content-type': 'multipart/form-data'
         }
     })
-    .then(res => console.log(res))
+    .then(res =>{
+        alert(`Blog successfuly created!`)    
+        console.log(res)
+    })
     .catch(err => console.log(err))
+}
+
+export const updateToAPI =(form, id)=>{
+    const data = new FormData();
+    data.append('title', form.title)
+    data.append('body', form.body)
+    data.append('image', form.image)
+
+    axios.put(`http://localhost:5000/v1/blog/post/${id}`, data, {
+        headers: {
+            'content-type': 'multipart/form-data'
+        }
+    })
+    .then(res =>{
+        alert(`Blog successfuly updated!`)    
+        console.log(res)
+    })
+    .catch(err => console.log(`error br:`,err))
 }

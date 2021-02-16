@@ -2,9 +2,9 @@ import React from 'react'
 
 import './Link.css'
 
-const Links = ({title, onClick}) => {
+const Links = ({title, ...rest}) => {
     return (
-            <p className="link" onClick={onClick}>{title}</p>
+            <p className="link" {...rest}>{title}</p>
         
     )
 }

@@ -20,7 +20,7 @@ const MainApp = () => {
                     <Route exact path='/'>
                         <Home/>
                     </Route>
-                    <Route path='/create-blog'>
+                    <Route path='/create-blog/:id?'>
                         <CreateBlog/>
                     </Route>
                     <Route path='/detail-blog/:id'>

@@ -5,12 +5,19 @@ const mongoose = require('mongoose') //--> mongoDB
 const multer = require('multer') //--> multiplatform / form-data
 const path = require('path') //--> default nodejs
 const moment = require('moment') //--> momentjs, for time
+const dotenv = require('dotenv');
 
+// setup server
 const app = express();
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, ()=>console.log(`Server run on port: ${PORT}`));
+
 
 // Bypass CORS blockage //
 app.use(cors());
 
+// .env
+dotenv.config();
 
 // ROUTES
 // const productsRoutes = require('./src/Routes/Products')
@@ -21,20 +28,16 @@ const blogRoutes = require('./src/Routes/Blog')
 
 // multer --> untuk upload image
 const fileStorage = multer.diskStorage({
-    
     destination: (req, file, cb)=>{
         cb(null, './images');
     },
     filename: (req, file, cb)=>{
         cb(null, moment().format(`DD-MM-YYYY`) + '-' + file.originalname ) //--> pake moment js
     }
-
-
 })
 
 const fileFilter = (req, file, cb) =>{
     console.log(`mime:`, file.mimetype);
-
     if(
         file.mimetype === 'image/png' ||
         file.mimetype === 'image/jpeg' ||
@@ -75,12 +78,13 @@ app.use((error, req, res, next)=>{
 })
 
 // mongoose // connecting to mongoDB
-mongoose.connect(`mongodb+srv://hanendyo:graffity15@cluster-mern.bd3fr.mongodb.net/blog?retryWrites=true&w=majority`)
-.then(()=>{
-    // .listen() // menjalankan server di port 5000
-    app.listen(5000, ()=> console.log(`connection to mongoDB success!`));
-})
-.catch(err => console.log(err))
+mongoose.connect(process.env.MDB_CONNECT, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}, (err)=> {
+    if(err) return console.error(err);
+    console.log(`Connected to mongoDB.`);
+});
 
 //! Method default dari browser adalah GET, maka selain itu tidak bisa
 //! ketika user mengakes data lewat url, maka http method hanya GET, karena memang hanya meng-GET data saja.

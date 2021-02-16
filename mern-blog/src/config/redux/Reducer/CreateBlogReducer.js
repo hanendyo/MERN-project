@@ -24,5 +24,6 @@ export const CreateBlogReducer = (state=initialState, action) => {
             imgPreview: action.payload
         }
     }
+
     return state;
 }

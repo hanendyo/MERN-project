@@ -1,7 +1,9 @@
-import { Routes } from '../../config/Config';
-import {Provider} from 'react-redux'
-import {Store} from '../../config/Config.jsx'
 import './App.css';
+
+import {Provider} from 'react-redux'
+
+import { Routes } from '../../config/Config';
+import {Store} from '../../config/Config.jsx'
 
 function App() {
   return (

@@ -6,7 +6,7 @@ const AuthModel = new Schema({
         type: String,
         required: true
     },
-    body: {
+    email: {
         type: String,
         required:true
     },
@@ -14,6 +14,7 @@ const AuthModel = new Schema({
         type: String,
         required: true
     }
-})
+}, {timestamps: true} //memberi waktu
+)
 
 module.exports = mongoose.model(`AuthModel`, AuthModel);

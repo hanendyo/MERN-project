@@ -6,6 +6,7 @@ import { Link } from '../../components/atoms/Atoms'
 import './DetailBlog.css'
 
 const DetailBlog = (props) => {
+    console.log(`props:`, props);
     const history = useHistory();
     const [data, setData] = useState({})
     const {title, image, body, author, createdAt} = data

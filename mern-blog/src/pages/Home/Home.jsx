@@ -6,8 +6,12 @@ import {useDispatch, useSelector} from 'react-redux'
 
 import './Home.css'
 
+import { confirmAlert } from 'react-confirm-alert'; // ract-confirm-alert
+import 'react-confirm-alert/src/react-confirm-alert.css'; 
+
 // ACTIONS
 import { setDataBlogPost } from '../../config/redux/Actions/Actions';
+import axios from 'axios';
 
 const Home = () => {
     const [pageCounter, setPageCounter] = useState(1)
@@ -32,7 +36,31 @@ const Home = () => {
       setPageCounter(pageCounter === page.totalPage ? page.totalPage : pageCounter + 1)
     }
 
+    const confirmDelete =(id)=>{
+        confirmAlert({
+            title: 'Confirm to delete',
+            message: 'Are you sure to delete this?',
+            buttons: [
+              {
+                label: 'Yes',
+                onClick: () => {
+                    axios.delete(`http://localhost:5000/v1/blog/post/${id}`)
+                    .then(res => dispatch(setDataBlogPost(pageCounter)))
+                    .catch(err=>err)
+                    
+                }
+
+              },
+              {
+                label: 'No',
+                onClick: () => console.log('Click No')
+              }
+            ]
+          });
+    }
+
     const history = useHistory();
+    
     return (
         <div className='homePageWrapper'>
             <div className='createWrapper'>
@@ -49,6 +77,7 @@ const Home = () => {
                                 date={blog.createdAt}
                                 body={blog.body}
                                 _id={blog._id}
+                                onDelete={confirmDelete}
                             />
                 })}
             </div>
